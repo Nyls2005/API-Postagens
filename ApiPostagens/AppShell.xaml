@@ -3,13 +3,13 @@
     x:Class="ApiPostagens.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ApiPostagens"
+    xmlns:local="clr-namespace:ApiPostagens.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="ApiPostagens">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:PostagensView}"
-        Route="MainPage" />
+        Route="MainPage"/>
 
 </Shell>

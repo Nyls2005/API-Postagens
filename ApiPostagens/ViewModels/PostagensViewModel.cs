@@ -25,9 +25,9 @@ namespace ApiPostagens.ViewModels
         {
             List<Postagem> Listar = new List<Postagem>();
             Listar = await new PostagensService().GetPostagens();
-            id = Listar[0].id;
+            /*id = Listar[0].id;
             title = Listar[0].title;
-            body = Listar[0].body;
+            body = Listar[0].body;*/
         }
     }
 }
