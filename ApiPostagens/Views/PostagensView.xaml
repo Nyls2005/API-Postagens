@@ -3,21 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApiPostagens.Views.PostagensView"
              Title="PostagensView">
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Id}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Title}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Body}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            Text="Carregando"
-            Command="{Binding CarregarPostagensCommand}" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Button
+                Text="Carregar"
+                Command="{Binding CarregarPostagenscommand}"/>
+            <!-- CollectionView é um Elemento que possibilita exibir uma lista
+                de elementos com base em um "Template", que busca objetos de
+                uma origem de dados, defina pela propriedade ItemSource e os
+                exibe na tela, substituindo os valores do template pelos
+                valores relacionados na vinculação de dados {Binding Atributo}-->
+            <CollectionView ItemsSource="{Binding Listar}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ScrollView>
+                            <VerticalStackLayout Padding="10">
+                                <Label
+                                   Text="{Binding Id}"
+                                   FontAttributes="Bold" />
+                                <Label
+                                   Text="{Binding Title}"
+                                   FontAttributes="Bold" />
+                                <Label 
+                                   Text="{Binding Body}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End" />
+                            </VerticalStackLayout>
+                        </ScrollView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

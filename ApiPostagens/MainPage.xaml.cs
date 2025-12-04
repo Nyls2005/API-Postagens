@@ -11,21 +11,21 @@ namespace ApiPostagens
         }
         async private void BuscarBtn_Clicked(object sender, EventArgs e)
         {
-            Fotos minhaFoto = new Fotos();
+            Postagem postagem = new Postagem();
             string URI = "https://jsonplaceholder.typicode.com/photos";
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage responseMessage = await httpClient.GetAsync(URI);
 
-            List<Fotos> fotos = new List<Fotos>();
+            List<Postagem> postagems = new List<Postagem>();
 
             if (responseMessage.IsSuccessStatusCode)
             {
                 
                 string conteudo = await responseMessage.Content.ReadAsStringAsync();
                 
-                fotos = JsonConvert.DeserializeObject<List<Fotos>>(conteudo);
+                postagems = JsonConvert.DeserializeObject<List<Postagem>>(conteudo);
 
-                NomeLbl.Text = fotos[0].Title;
+                NomeLbl.Text = postagems[0].title;
             }
         }
     }

@@ -21,10 +21,14 @@ namespace ApiPostagens.ViewModels
         [ObservableProperty]
         public string body;
         public ICommand CarregarPostagenscommand => new Command(async () => CarregaPostagens());
+
+        [ObservableProperty]
+        public List<Postagem> listar = new List<Postagem>();
+
         public async void CarregaPostagens()
         {
-            List<Postagem> Listar = new List<Postagem>();
-            Listar = await new PostagensService().GetPostagens();
+            
+            listar = await new PostagensService().GetPostagens();
             /*id = Listar[0].id;
             title = Listar[0].title;
             body = Listar[0].body;*/
